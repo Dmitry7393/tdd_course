@@ -16,12 +16,8 @@ If your language provides a method in the standard library that does this look-u
 
 bool isLeapYear(int year)
 {
-    if (year % 4 == 0)
+    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
     {
-        if (year % 100 == 0 && year % 400 != 0)
-        {
-            return false;
-        }
         return true;
     }
 
