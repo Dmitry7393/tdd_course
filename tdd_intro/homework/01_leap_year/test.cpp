@@ -42,3 +42,8 @@ TEST(isLeapYear, divisible_by_400)
 {
     ASSERT_EQ(isLeapYear(2000), true);
 }
+
+TEST(isLeapYear, test2016Year)
+{
+    ASSERT_EQ(isLeapYear(2016), true);
+}
