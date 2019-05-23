@@ -28,3 +28,8 @@ TEST(isLeapYear, divisible_by_4)
 {
     ASSERT_EQ(isLeapYear(1996), true);
 }
+
+TEST(isLeapYear, divisible_by_100)
+{
+    ASSERT_EQ(isLeapYear(1900), false);
+}
