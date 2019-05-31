@@ -20,12 +20,12 @@ If your language provides a method in the standard library to perform the conver
 
 bool isTernary(const std::string& str)
 {
-    if (str.find_first_of("456789"))
+    if (str.find_first_of("3456789") == std::string::npos)
     {
-        return false;
+        return true;
     }
 
-    return true;
+    return false;
 }
 
 int convertTernaryNumberToDecimal(const std::string& ternaryNumber)
