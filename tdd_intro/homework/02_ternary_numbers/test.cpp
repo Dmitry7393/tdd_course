@@ -20,6 +20,12 @@ If your language provides a method in the standard library to perform the conver
 
 int convertTernaryNumberToDecimal(const std::string& ternaryNumber)
 {
+    if (ternaryNumber.length() == 2)
+    {
+        int firstSymbol = ternaryNumber[0] - '0';
+        int secondSymbol = ternaryNumber[1] - '0';
+        return (firstSymbol * pow(3, 1) + secondSymbol * pow(3, 0));
+    }
     int n = ternaryNumber[0] - '0';
     return n * pow(3, 0);
 }
