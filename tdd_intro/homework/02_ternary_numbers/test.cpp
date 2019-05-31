@@ -24,6 +24,10 @@ int convertTernaryNumberToDecimal(const std::string& ternaryNumber)
     {
         return 1;
     }
+    else if (ternaryNumber == "2")
+    {
+        return 2;
+    }
 
     return 0;
 }
