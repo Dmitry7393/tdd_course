@@ -55,3 +55,8 @@ TEST(convertTernaryNumberToDecimal, convertTernaryNumber102)
 {
     ASSERT_EQ(convertTernaryNumberToDecimal("102"), 11);
 }
+
+TEST(convertTernaryNumberToDecimal, generalTestconvertTernaryNumber102012)
+{
+    ASSERT_EQ(convertTernaryNumberToDecimal("102012"), 302);
+}
