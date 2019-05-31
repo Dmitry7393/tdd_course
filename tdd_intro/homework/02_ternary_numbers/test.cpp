@@ -20,6 +20,15 @@ If your language provides a method in the standard library to perform the conver
 
 bool isTernary(const std::string& str)
 {
+    int n = 0;
+    for (int i = 0; i < str.length(); i++)
+    {
+        n = str[i] - '0';
+        if (n == 3 || n == 4 || n == 5 || n == 6 || n == 7 || n == 8 || n == 9)
+        {
+            return false;
+        }
+    }
     return true;
 }
 
