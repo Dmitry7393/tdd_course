@@ -18,6 +18,11 @@ The last place in a ternary number is the 1's place. The second to last is the 3
 If your language provides a method in the standard library to perform the conversion, pretend it doesn't exist and implement it yourself.
 */
 
+bool isTernary(const std::string& str)
+{
+    return true;
+}
+
 int convertTernaryNumberToDecimal(const std::string& ternaryNumber)
 {
     int sum = 0;
@@ -60,4 +65,9 @@ TEST(convertTernaryNumberToDecimal, convertTernaryNumber102)
 TEST(convertTernaryNumberToDecimal, generalTestconvertTernaryNumber102012)
 {
     ASSERT_EQ(convertTernaryNumberToDecimal("102012"), 302);
+}
+
+TEST(isTernary, number243IsNotTernaryNumber)
+{
+    ASSERT_EQ(isTernary("243"), false);
 }
