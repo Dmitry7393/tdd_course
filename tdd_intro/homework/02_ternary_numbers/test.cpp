@@ -32,6 +32,12 @@ int convertTernaryNumberToDecimal(const std::string& ternaryNumber)
 {
     int sum = 0;
     int symbol = 0;
+
+    if (!isTernary(ternaryNumber))
+    {
+        return 0;
+    }
+
     for (int i = 0; i < ternaryNumber.length(); i++)
     {
         symbol = ternaryNumber[i] - '0';
