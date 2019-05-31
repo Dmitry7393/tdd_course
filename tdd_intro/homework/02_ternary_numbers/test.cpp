@@ -20,23 +20,14 @@ If your language provides a method in the standard library to perform the conver
 
 int convertTernaryNumberToDecimal(const std::string& ternaryNumber)
 {
-    int firstSymbol = ternaryNumber[0] - '0';
+    int summ = 0;
+    for (int i = 0; i < ternaryNumber.length(); i++)
+    {
+        int n = ternaryNumber[i] - '0';
+        summ = summ + n * pow(3, ternaryNumber.length() - i - 1);
+    }
 
-    if (ternaryNumber.length() == 2)
-    {
-        int secondSymbol = ternaryNumber[1] - '0';
-        return (firstSymbol * pow(3, 1) + secondSymbol * pow(3, 0));
-    }
-    else if (ternaryNumber.length() == 3)
-    {
-        int secondSymbol = ternaryNumber[1] - '0';
-        int thirdSymbol = ternaryNumber[2] - '0';
-        return firstSymbol * pow(3, 2) + secondSymbol * pow(3, 1) + thirdSymbol * pow(3, 0);
-    }
-    else
-    {
-        return firstSymbol * pow(3, 0);
-    }
+    return summ;
 }
 
 
