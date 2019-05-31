@@ -81,3 +81,8 @@ TEST(isTernary, number1021021IsTernaryNumber)
 {
     ASSERT_EQ(isTernary("1021021"), true);
 }
+
+TEST(isTernary, number201203IsNotTernaryNumber)
+{
+    ASSERT_EQ(isTernary("201203"), false);
+}
