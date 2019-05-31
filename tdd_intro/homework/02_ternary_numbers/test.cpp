@@ -27,6 +27,12 @@ int convertTernaryNumberToDecimal(const std::string& ternaryNumber)
         int secondSymbol = ternaryNumber[1] - '0';
         return (firstSymbol * pow(3, 1) + secondSymbol * pow(3, 0));
     }
+    else if (ternaryNumber.length() == 3)
+    {
+        int secondSymbol = ternaryNumber[1] - '0';
+        int thirdSymbol = ternaryNumber[2] - '0';
+        return firstSymbol * pow(3, 2) + secondSymbol * pow(3, 1) + thirdSymbol * pow(3, 0);
+    }
     else
     {
         return firstSymbol * pow(3, 0);
