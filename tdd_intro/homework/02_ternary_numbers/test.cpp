@@ -33,3 +33,9 @@ TEST(convertTernaryNumberToDecimal, testConvertSymbol1)
 {
     ASSERT_EQ(convertTernaryNumberToDecimal("1"), 1);
 }
+
+TEST(convertTernaryNumberToDecimal, convertSymbol2)
+{
+    ASSERT_EQ(convertTernaryNumberToDecimal("2"), 2);
+}
+
