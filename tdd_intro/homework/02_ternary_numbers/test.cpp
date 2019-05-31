@@ -20,7 +20,7 @@ If your language provides a method in the standard library to perform the conver
 
 bool isTernary(const std::string& str)
 {
-    if (str.find_first_of("3456789") == std::string::npos)
+    if (str.find_first_not_of("012") == std::string::npos)
     {
         return true;
     }
