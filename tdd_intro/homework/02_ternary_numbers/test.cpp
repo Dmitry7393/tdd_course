@@ -20,16 +20,8 @@ If your language provides a method in the standard library to perform the conver
 
 int convertTernaryNumberToDecimal(const std::string& ternaryNumber)
 {
-    if (ternaryNumber == "1")
-    {
-        return 1;
-    }
-    else if (ternaryNumber == "2")
-    {
-        return 2;
-    }
-
-    return 0;
+    int n = ternaryNumber[0] - '0';
+    return n * pow(3, 0);
 }
 
 
