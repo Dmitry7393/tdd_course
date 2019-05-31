@@ -20,14 +20,15 @@ If your language provides a method in the standard library to perform the conver
 
 int convertTernaryNumberToDecimal(const std::string& ternaryNumber)
 {
-    int summ = 0;
+    int sum = 0;
+    int symbol = 0;
     for (int i = 0; i < ternaryNumber.length(); i++)
     {
-        int n = ternaryNumber[i] - '0';
-        summ = summ + n * pow(3, ternaryNumber.length() - i - 1);
+        symbol = ternaryNumber[i] - '0';
+        sum = sum + symbol * pow(3, ternaryNumber.length() - i - 1);
     }
 
-    return summ;
+    return sum;
 }
 
 
