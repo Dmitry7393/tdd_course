@@ -86,3 +86,8 @@ TEST(isTernary, number201203IsNotTernaryNumber)
 {
     ASSERT_EQ(isTernary("201203"), false);
 }
+
+TEST(convertTernaryNumberToDecimal, tryToConvert10220321WrongTernaryNumber)
+{
+    ASSERT_EQ(convertTernaryNumberToDecimal("10220321"), 0);
+}
