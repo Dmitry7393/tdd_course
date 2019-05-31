@@ -40,3 +40,7 @@ TEST(convertTernaryNumberToDecimal, convertSymbol0)
     ASSERT_EQ(convertTernaryNumberToDecimal("0"), 0);
 }
 
+TEST(convertTernaryNumberToDecimal, convertString12)
+{
+    ASSERT_EQ(convertTernaryNumberToDecimal("12"), 5);
+}
