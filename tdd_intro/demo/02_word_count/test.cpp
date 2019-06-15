@@ -73,3 +73,10 @@ TEST(getWordsFromSentence, testThreeWords)
     std::vector<std::string> expected = { "test", "three", "words" };
     ASSERT_EQ(getWordsFromSentence("  test  three words"), expected);
 }
+
+
+TEST(getWordsFromSentence, workWithPunctualSymbols)
+{
+    std::vector<std::string> expected = { "hi" };
+    ASSERT_EQ(getWordsFromSentence("hi.,;!?"), expected);
+}
