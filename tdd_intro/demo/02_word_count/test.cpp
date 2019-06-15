@@ -63,6 +63,12 @@ std::vector<std::string> getWordsFromSentence(const std::string& sentence)
     return result;
 }
 
+std::map<std::string, int> countWords(const std::string& sentence)
+{
+    std::map<std::string, int> mapResult;
+    return mapResult;
+}
+
 TEST(getWordsFromSentence, testSingleWord_hello)
 {
     std::vector<std::string> expected = { "hello" };
@@ -124,6 +130,9 @@ TEST(getWordsFromSentence, threeWordsSeparatedWithDot)
     ASSERT_EQ(getWordsFromSentence("hello.world. hi"), expected);
 }
 
+TEST(countWords, singleWord)
+{
+    std::map<std::string, int> expected = { {"hello", 1} };
 
-
-
+    ASSERT_EQ(countWords("hello"), expected);
+}
