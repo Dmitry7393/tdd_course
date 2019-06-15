@@ -151,3 +151,12 @@ TEST(countWords, sentenceWithoutRepeatedWords)
                                           };
     ASSERT_EQ(countWords("aaaa bbbb cccc"), expected);
 }
+
+TEST(countWords, sentenceWithRepeatedWords)
+{
+    std::map<std::string, int> expected = {
+                                            {"aaaa", 2}, {"bbbb", 1},
+                                            {"cccc", 1}, {"aaa", 1}
+                                          };
+    ASSERT_EQ(countWords("aaaa bbbb cccc aaa aaaa"), expected);
+}
