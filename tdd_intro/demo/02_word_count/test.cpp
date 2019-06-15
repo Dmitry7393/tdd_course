@@ -66,7 +66,13 @@ std::vector<std::string> getWordsFromSentence(const std::string& sentence)
 std::map<std::string, int> countWords(const std::string& sentence)
 {
     std::map<std::string, int> mapResult;
-    mapResult[sentence] = 1;
+
+    std::vector<std::string> words = getWordsFromSentence(sentence);
+    for (int i = 0; i < words.size(); i++)
+    {
+        mapResult[words[i]] = 1;
+    }
+
     return mapResult;
 }
 
