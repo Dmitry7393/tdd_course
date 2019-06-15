@@ -228,6 +228,12 @@ int recognizeSingleCharacter(const Digit& digit)
     {
         return 1;
     }
+    else if (digit.lines[0] == s_digit7.lines[0] &&
+             digit.lines[1] == s_digit7.lines[1] &&
+             digit.lines[2] == s_digit7.lines[2])
+    {
+        return 7;
+    }
     return -1;
 }
 
