@@ -53,4 +53,8 @@ TEST(getWordsFromSentence, testSingleWord_hello)
     ASSERT_EQ(getWordsFromSentence("hello"), expected);
 }
 
-
+TEST(getWordsFromSentence, testTwoWords)
+{
+    std::vector<std::string> expected = { "hello", "hello" };
+    ASSERT_EQ(getWordsFromSentence("hello     hello"), expected);
+}
