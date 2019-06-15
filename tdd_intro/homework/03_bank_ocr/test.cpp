@@ -290,3 +290,13 @@ TEST(recognizeSeveralCharacters, recognizeSequence12)
 
     ASSERT_EQ(recognizeSeveralCharacters(s_display12), "12");
 }
+
+TEST(recognizeSeveralCharacters, recognizeSequence123)
+{
+    const Display s_display123 = { "    _  _ ",
+                                   "  | _| _|",
+                                   "  ||_  _|"
+                                 };
+
+    ASSERT_EQ(recognizeSeveralCharacters(s_display123), "123");
+}
