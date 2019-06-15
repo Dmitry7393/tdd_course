@@ -250,5 +250,8 @@ TEST(recognizeSingleCharacter, recognizeCharacter7)
     ASSERT_EQ(recognizeSingleCharacter(s_digit7), 7);
 }
 
-
+TEST(recognizeSingleCharacter, recognizeCharacter4)
+{
+    ASSERT_EQ(recognizeSingleCharacter(s_digit4), 4);
+}
 
