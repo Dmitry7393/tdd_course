@@ -17,3 +17,26 @@ such: 1
 #include <string>
 #include <map>
 
+/*
+There are going to be 2 functions
+1. getWordsFromSentence, that removes punctual symbols and returns vector with words
+2. countWords, that calls getWordsFromSentence and uses map to count the occurrences of each word
+
+Test plan
+1) Implement function getWordsFromSentence
+   1. "hello"
+   2. "hello     hello"
+   3. "  test  three words"
+   4. "hi.,;!?"
+   5. "hello, hello"
+   6. "olly olly in   come free please please let it be    in such manner olly?"
+   7. "hello,hello"
+   8. "hello, world, hello!"
+   9. "hello.world. hi"
+
+2) Implement function countWords
+   1. "aaaa bbbb cccc aaa aaaa"
+   2. "olly olly in come free please please let it be in such manner    olly!"
+   3. "olly! olly in come,free please please let it. be in such manner olly"
+*/
+
