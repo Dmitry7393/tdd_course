@@ -160,3 +160,28 @@ TEST(countWords, sentenceWithRepeatedWords)
                                           };
     ASSERT_EQ(countWords("aaaa bbbb cccc aaa aaaa"), expected);
 }
+
+TEST(countWords, sentenceWithOnePunctualSymbols)
+{
+    std::map<std::string, int> expected = {
+                                            {"olly", 3}, {"in", 2},
+                                            {"come", 1}, {"free", 1},
+                                            {"please", 2}, {"let", 1},
+                                            {"it", 1}, {"be", 1},
+                                            {"manner", 1}, {"such", 1}
+                                          };
+    ASSERT_EQ(countWords("olly olly in come free please please let it be in such manner    olly!"), expected);
+}
+
+
+TEST(countWords, sentenceWithDifferentPunctualSymbols)
+{
+    std::map<std::string, int> expected = {
+                                            {"olly", 3}, {"in", 2},
+                                            {"come", 1}, {"free", 1},
+                                            {"please", 2}, {"let", 1},
+                                            {"it", 1}, {"be", 1},
+                                            {"manner", 1}, {"such", 1}
+                                          };
+    ASSERT_EQ(countWords("olly! olly in come,free please please let it. be in such manner olly"), expected);
+}
