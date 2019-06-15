@@ -240,3 +240,11 @@ TEST(recognizeSingleCharacter, recognizeCharacter1)
 {
     ASSERT_EQ(recognizeSingleCharacter(s_digit1), 1);
 }
+
+TEST(recognizeSingleCharacter, recognizeCharacter7)
+{
+    ASSERT_EQ(recognizeSingleCharacter(s_digit7), 7);
+}
+
+
+
