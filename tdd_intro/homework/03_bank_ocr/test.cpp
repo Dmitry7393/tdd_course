@@ -213,3 +213,13 @@ Test plan
 9. recognize '555555555'
 10. recognize '123456789'
 */
+
+int recognizeSingleCharacter(const Digit& digit)
+{
+    return -1;
+}
+
+TEST(recognizeSingleCharacter, recognizeCharacter0)
+{
+    ASSERT_EQ(recognizeSingleCharacter(s_digit0), 0);
+}
