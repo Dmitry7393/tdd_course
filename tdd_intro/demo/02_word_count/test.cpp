@@ -40,3 +40,16 @@ Test plan
    3. "olly! olly in come,free please please let it. be in such manner olly"
 */
 
+std::vector<std::string> getWordsFromSentence(const std::string& str)
+{
+    std::vector<std::string> result;
+    return result;
+}
+
+TEST(getWordsFromSentence, testSingleWord_hello)
+{
+    std::vector<std::string> expected = { "hello" };
+    ASSERT_EQ(getWordsFromSentence("hello"), expected);
+}
+
+
