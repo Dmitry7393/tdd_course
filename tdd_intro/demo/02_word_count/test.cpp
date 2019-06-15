@@ -43,6 +43,7 @@ Test plan
 std::vector<std::string> getWordsFromSentence(const std::string& str)
 {
     std::vector<std::string> result;
+    result.push_back(str);
     return result;
 }
 
