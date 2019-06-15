@@ -40,9 +40,16 @@ Test plan
    3. "olly! olly in come,free please please let it. be in such manner olly"
 */
 
-std::vector<std::string> getWordsFromSentence(const std::string& str)
+std::vector<std::string> getWordsFromSentence(std::string str)
 {
     std::vector<std::string> result;
+
+    const char punctualSymbols[] = { '.', ',', '!', '?', ';' };
+
+    for (int i = 0; i < 5; i++)
+    {
+        std::replace(str.begin(), str.end(), punctualSymbols[i], ' ');
+    }
 
     std::istringstream ss(str);
     std::string word;
