@@ -216,6 +216,12 @@ Test plan
 
 int recognizeSingleCharacter(const Digit& digit)
 {
+    if (digit.lines[0] == s_digit0.lines[0] &&
+        digit.lines[1] == s_digit0.lines[1] &&
+        digit.lines[2] == s_digit0.lines[2])
+    {
+        return 0;
+    }
     return -1;
 }
 
