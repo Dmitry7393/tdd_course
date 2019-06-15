@@ -306,3 +306,23 @@ TEST(recognizeSeveralCharacters, recognizeSequence1234)
 
     ASSERT_EQ(recognizeSeveralCharacters(s_display1234), "1234");
 }
+
+TEST(recognizeSeveralCharacters, recognize_s_displayAll0)
+{
+    ASSERT_EQ(recognizeSeveralCharacters(s_displayAll0), "000000000");
+}
+
+TEST(recognizeSeveralCharacters, recognize_s_displayAll1)
+{
+    ASSERT_EQ(recognizeSeveralCharacters(s_displayAll1), "111111111");
+}
+
+TEST(recognizeSeveralCharacters, recognize_s_displayAll5)
+{
+    ASSERT_EQ(recognizeSeveralCharacters(s_displayAll5), "555555555");
+}
+
+TEST(recognizeSeveralCharacters, recognize_s_display123456789)
+{
+    ASSERT_EQ(recognizeSeveralCharacters(s_display123456789), "123456789");
+}
