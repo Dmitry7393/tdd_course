@@ -43,7 +43,16 @@ Test plan
 std::vector<std::string> getWordsFromSentence(const std::string& str)
 {
     std::vector<std::string> result;
-    result.push_back(str);
+
+    std::istringstream ss(str);
+    std::string word;
+
+    while(getline(ss, word, ' '))
+    {
+        if (word.length() > 0)
+            result.push_back(word);
+    }
+
     return result;
 }
 
