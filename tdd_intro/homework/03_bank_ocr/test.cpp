@@ -195,3 +195,21 @@ const Display s_display123456789 = { "    _  _     _  _  _  _  _ ",
                                      "  | _| _||_||_ |_   ||_||_|",
                                      "  ||_  _|  | _||_|  ||_| _|"
 };
+
+/*
+There are going to be 2 functions:
+1. function recognizeSingleCharacter returns a single-digit
+2. function recognizeSeveralCharacters returns a full number
+
+Test plan
+1. recognize '0'
+2. recognize '1'
+3. recognize '7'
+4. recognize '12'
+5. recognize '123'
+6. recognize '1234'
+7. recognize '000000000'
+8. recognize '111111111'
+9. recognize '555555555'
+10. recognize '123456789'
+*/
