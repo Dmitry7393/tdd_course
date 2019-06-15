@@ -216,24 +216,22 @@ Test plan
 
 int recognizeSingleCharacter(const Digit& digit)
 {
-    if (digit.lines[0] == s_digit0.lines[0] &&
-        digit.lines[1] == s_digit0.lines[1] &&
-        digit.lines[2] == s_digit0.lines[2])
+    const std::vector<Digit> allSingleDigits = { s_digit0, s_digit1, s_digit2,
+                                                 s_digit3, s_digit4, s_digit5,
+                                                 s_digit6, s_digit7, s_digit8,
+                                                 s_digit9
+                                               };
+
+    for (int i = 0; i < allSingleDigits.size(); i++)
     {
-        return 0;
+        if (digit.lines[0] == allSingleDigits[i].lines[0] &&
+            digit.lines[1] == allSingleDigits[i].lines[1] &&
+            digit.lines[2] == allSingleDigits[i].lines[2])
+        {
+            return i;
+        }
     }
-    else if (digit.lines[0] == s_digit1.lines[0] &&
-             digit.lines[1] == s_digit1.lines[1] &&
-             digit.lines[2] == s_digit1.lines[2])
-    {
-        return 1;
-    }
-    else if (digit.lines[0] == s_digit7.lines[0] &&
-             digit.lines[1] == s_digit7.lines[1] &&
-             digit.lines[2] == s_digit7.lines[2])
-    {
-        return 7;
-    }
+
     return -1;
 }
 
