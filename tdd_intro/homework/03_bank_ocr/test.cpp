@@ -229,3 +229,8 @@ TEST(recognizeSingleCharacter, recognizeCharacter0)
 {
     ASSERT_EQ(recognizeSingleCharacter(s_digit0), 0);
 }
+
+TEST(recognizeSingleCharacter, recognizeCharacter1)
+{
+    ASSERT_EQ(recognizeSingleCharacter(s_digit1), 1);
+}
