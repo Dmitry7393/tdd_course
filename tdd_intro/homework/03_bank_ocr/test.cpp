@@ -244,31 +244,14 @@ int recognizeSingleCharacter(const Digit& digit)
 std::string recognizeSeveralCharacters(const Display& display)
 {
     std::string result;
-    Digit firstDigit = { display.lines[0].substr(0, 3),
-                         display.lines[1].substr(0, 3),
-                         display.lines[2].substr(0, 3),
-                       };
 
-    Digit secondDigit = { display.lines[0].substr(3, 3),
-                          display.lines[1].substr(3, 3),
-                          display.lines[2].substr(3, 3),
-                        };
-
-
-
-    int firstNumber = recognizeSingleCharacter(firstDigit);
-    int secondNumber = recognizeSingleCharacter(secondDigit);
-
-    result = std::to_string(firstNumber) + std::to_string(secondNumber);
-
-    if (display.lines[0].size() > 6)
+    for (int i = 0; i < display.lines[0].size(); i += 3)
     {
-        Digit thirdDigit = {  display.lines[0].substr(6, 3),
-                              display.lines[1].substr(6, 3),
-                              display.lines[2].substr(6, 3),
-                            };
-        int thirdNumber = recognizeSingleCharacter(thirdDigit);
-        result = std::to_string(firstNumber) + std::to_string(secondNumber) + std::to_string(thirdNumber);
+        Digit digit = {display.lines[0].substr(i, 3),
+                       display.lines[1].substr(i, 3),
+                       display.lines[2].substr(i, 3)};
+        int recognizedNumber = recognizeSingleCharacter(digit);
+        result += std::to_string(recognizedNumber);
     }
 
    return result;
