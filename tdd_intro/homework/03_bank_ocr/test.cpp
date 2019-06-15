@@ -214,19 +214,25 @@ Test plan
 10. recognize '123456789'
 */
 
+static const std::vector<Digit> g_allSingleDigits = { s_digit0, s_digit1, s_digit2,
+                                                      s_digit3, s_digit4, s_digit5,
+                                                      s_digit6, s_digit7, s_digit8,
+                                                                          s_digit9
+                                                    };
+
 int recognizeSingleCharacter(const Digit& digit)
 {
-    const std::vector<Digit> allSingleDigits = { s_digit0, s_digit1, s_digit2,
-                                                 s_digit3, s_digit4, s_digit5,
-                                                 s_digit6, s_digit7, s_digit8,
-                                                 s_digit9
-                                               };
-
-    for (int i = 0; i < allSingleDigits.size(); i++)
+    for (int i = 0; i < g_allSingleDigits.size(); i++)
     {
-        if (digit.lines[0] == allSingleDigits[i].lines[0] &&
-            digit.lines[1] == allSingleDigits[i].lines[1] &&
-            digit.lines[2] == allSingleDigits[i].lines[2])
+        bool match = true;
+        for (int j = 0; j < g_linesInDigit; j++)
+        {
+            if (digit.lines[j] != g_allSingleDigits[i].lines[j])
+            {
+                match = false;
+            }
+        }
+        if (match)
         {
             return i;
         }
