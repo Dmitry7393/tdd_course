@@ -40,21 +40,21 @@ Test plan
    3. "olly! olly in come,free please please let it. be in such manner olly"
 */
 
-std::vector<std::string> getWordsFromSentence(std::string str)
+std::vector<std::string> getWordsFromSentence(const std::string& sentence)
 {
     std::vector<std::string> result;
+    std::string modifiedSentence = sentence;
 
     const char punctualSymbols[] = { '.', ',', '!', '?', ';' };
-
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < sizeof(punctualSymbols); i++)
     {
-        std::replace(str.begin(), str.end(), punctualSymbols[i], ' ');
+        std::replace(modifiedSentence.begin(), modifiedSentence.end(), punctualSymbols[i], ' ');
     }
 
-    std::istringstream ss(str);
+    std::istringstream iss(modifiedSentence);
     std::string word;
 
-    while(getline(ss, word, ' '))
+    while(getline(iss, word, ' '))
     {
         if (word.length() > 0)
             result.push_back(word);
