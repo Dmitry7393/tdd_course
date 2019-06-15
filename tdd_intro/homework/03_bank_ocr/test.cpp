@@ -313,3 +313,13 @@ TEST(recognizeSeveralCharacters, recognizeSequence123)
 
     ASSERT_EQ(recognizeSeveralCharacters(s_display123), "123");
 }
+
+TEST(recognizeSeveralCharacters, recognizeSequence1234)
+{
+    const Display s_display1234 = { "    _  _    ",
+                                    "  | _| _||_|",
+                                    "  ||_  _|  |"
+                                  };
+
+    ASSERT_EQ(recognizeSeveralCharacters(s_display1234), "1234");
+}
