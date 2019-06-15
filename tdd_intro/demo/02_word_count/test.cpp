@@ -70,7 +70,7 @@ std::map<std::string, int> countWords(const std::string& sentence)
     std::vector<std::string> words = getWordsFromSentence(sentence);
     for (int i = 0; i < words.size(); i++)
     {
-        mapResult[words[i]] = mapResult[words[i]] + 1;
+        mapResult[words[i]]++;
     }
 
     return mapResult;
