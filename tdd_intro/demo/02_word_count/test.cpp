@@ -87,3 +87,43 @@ TEST(getWordsFromSentence, workWithPunctualSymbols)
     std::vector<std::string> expected = { "hi" };
     ASSERT_EQ(getWordsFromSentence("hi.,;!?"), expected);
 }
+
+TEST(getWordsFromSentence, twoWordsWithPunctualSymbol)
+{
+    std::vector<std::string> expected = { "hello", "hello" };
+    ASSERT_EQ(getWordsFromSentence("hello, hello"), expected);
+}
+
+TEST(getWordsFromSentence, sentenceWithPunctualSymbols)
+{
+    std::vector<std::string> expected = { "olly", "olly", "in", "come", "free",
+                                          "please", "please", "let", "it",
+                                          "be", "in", "such", "manner", "olly"};
+
+    ASSERT_EQ(getWordsFromSentence("olly olly in   come free please please let it be    in such manner olly?"), expected);
+}
+
+TEST(getWordsFromSentence, twoWordsSeparatedByComma)
+{
+    std::vector<std::string> expected = { "hello", "hello"};
+
+    ASSERT_EQ(getWordsFromSentence("hello,hello"), expected);
+}
+
+TEST(getWordsFromSentence, threeWordsSeparatedByComma)
+{
+    std::vector<std::string> expected = { "hello", "world", "hello"};
+
+    ASSERT_EQ(getWordsFromSentence("hello, world, hello!"), expected);
+}
+
+TEST(getWordsFromSentence, threeWordsSeparatedWithDot)
+{
+    std::vector<std::string> expected = { "hello", "world", "hi"};
+
+    ASSERT_EQ(getWordsFromSentence("hello.world. hi"), expected);
+}
+
+
+
+
