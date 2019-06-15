@@ -245,11 +245,11 @@ std::string recognizeSeveralCharacters(const Display& display)
 {
     std::string result;
 
-    for (int i = 0; i < display.lines[0].size(); i += 3)
+    for (int i = 0; i < display.lines[0].size(); i += g_linesInDigit)
     {
-        Digit digit = {display.lines[0].substr(i, 3),
-                       display.lines[1].substr(i, 3),
-                       display.lines[2].substr(i, 3)};
+        Digit digit = {display.lines[0].substr(i, g_linesInDigit),
+                       display.lines[1].substr(i, g_linesInDigit),
+                       display.lines[2].substr(i, g_linesInDigit)};
         int recognizedNumber = recognizeSingleCharacter(digit);
         result += std::to_string(recognizedNumber);
     }
