@@ -137,3 +137,11 @@ TEST(countWords, singleWord)
 
     ASSERT_EQ(countWords("hello"), expected);
 }
+
+TEST(countWords, sentenceWithoutRepeatedWords)
+{
+    std::map<std::string, int> expected = {
+                                            {"aaaa", 1}, {"bbbb", 1}, {"cccc", 1}
+                                          };
+    ASSERT_EQ(countWords("aaaa bbbb cccc"), expected);
+}
