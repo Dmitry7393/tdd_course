@@ -208,7 +208,7 @@ Test plan
 4. recognize '12'
 5. recognize '123'
 6. recognize '1234'
-7. recognize '000000000'
+7. recognize '000000000
 8. recognize '111111111'
 9. recognize '555555555'
 10. recognize '123456789'
@@ -241,6 +241,11 @@ int recognizeSingleCharacter(const Digit& digit)
     return -1;
 }
 
+std::string recognizeSeveralCharacters(const Display& display)
+{
+    return 0;
+}
+
 TEST(recognizeSingleCharacter, recognizeCharacter0)
 {
     ASSERT_EQ(recognizeSingleCharacter(s_digit0), 0);
@@ -261,3 +266,12 @@ TEST(recognizeSingleCharacter, recognizeCharacter4)
     ASSERT_EQ(recognizeSingleCharacter(s_digit4), 4);
 }
 
+TEST(recognizeSeveralCharacters, recognizeSequence12)
+{
+    const Display s_display12 = { "    _ ",
+                                  "  | _|",
+                                  "  ||_ "
+                                };
+
+    ASSERT_EQ(recognizeSeveralCharacters(s_display12), "12");
+}
