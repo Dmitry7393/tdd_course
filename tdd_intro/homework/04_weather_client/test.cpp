@@ -364,3 +364,27 @@ TEST(GetMaximumWindSpeed, maximumWindSpeedFor31_08is5_1)
 
     ASSERT_EQ(weatherClient.GetMaximumWindSpeed(fakeWeatherServer, "31.08.2018"), 5.1);
 }
+
+TEST(GetAverageTemperature, averageTemperaturefor02_09is26_75)
+{
+    FakeWeatherServer fakeWeatherServer;
+    WeatherClient weatherClient;
+
+   ASSERT_EQ(weatherClient.GetAverageTemperature(fakeWeatherServer, "02.09.2018"), 26.75);
+}
+
+TEST(GetMaximumTemperature, maximumTemperatureFor01_09is31)
+{
+    FakeWeatherServer fakeWeatherServer;
+    WeatherClient weatherClient;
+
+   ASSERT_EQ(weatherClient.GetMaximumTemperature(fakeWeatherServer, "01.09.2018"), 31);
+}
+
+TEST(GetMaximumWindSpeed, maximumWindSpeedFor01_09is4_2)
+{
+    FakeWeatherServer fakeWeatherServer;
+    WeatherClient weatherClient;
+
+    ASSERT_EQ(weatherClient.GetMaximumWindSpeed(fakeWeatherServer, "01.09.2018"), 4.2);
+}
