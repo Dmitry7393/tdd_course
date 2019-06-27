@@ -148,7 +148,80 @@ public:
     }
 };
 
+class FakeWeatherServer : public IWeatherServer
+{
+public:
 
+    std::string GetWeather(const std::string& request) override
+    {
+        return m_FakeWeatherData[request];
+    }
+
+    ~FakeWeatherServer() { }
+
+private:
+    std::map<std::string, std::string> m_FakeWeatherData = {
+            {"31.08.2018;03:00", "20;181;5.1"},
+            {"31.08.2018;09:00", "23;204;4.9"},
+            {"31.08.2018;15:00", "33;193;4.3"},
+            {"31.08.2018;21:00", "26;179;4.5"},
+
+            {"01.09.2018;03:00", "19;176;4.2"},
+            {"01.09.2018;09:00", "22;131;4.1"},
+            {"01.09.2018;15:00", "31;109;4.0"},
+            {"01.09.2018;21:00", "24;127;4.1"},
+
+            {"02.09.2018;03:00", "21;158;3.8"},
+            {"02.09.2018;09:00", "25;201;3.5"},
+            {"02.09.2018;15:00", "34;258;3.7"},
+            {"02.09.2018;21:00", "27;299;4.0"}
+    };
+
+};
+
+
+class WeatherClient : public IWeatherClient
+{
+public:
+    std::vector<Weather> getWeatherDataForDay(IWeatherServer& server, const std::string& date)
+    {
+        std::vector<Weather> expectedWeatherData;
+        return expectedWeatherData;
+    }
+
+    double GetAverageTemperature(IWeatherServer& server, const std::string& date)
+    {
+
+    }
+
+    double GetMinimumTemperature(IWeatherServer& server, const std::string& date)
+    {
+
+    }
+
+    double GetMaximumTemperature(IWeatherServer& server, const std::string& date)
+    {
+
+    }
+
+    double GetAverageWindDirection(IWeatherServer& server, const std::string& date)
+    {
+
+    }
+
+    double GetMaximumWindSpeed(IWeatherServer& server, const std::string& date)
+    {
+
+    }
+
+    ~WeatherClient()
+    {
+
+    }
+
+private:
+    WeatherParser m_WeatherParser;
+};
 
 TEST(getWeather, parseWeatherDataFor31_08)
 {
@@ -165,4 +238,17 @@ TEST(getWeather, parseWeatherDataFor01_09)
     ASSERT_EQ(weather, parser.getWeather("31;109;4.0"));
 }
 
+TEST(getWeatherDataForDay, weatherDataFor31_08)
+{
+    FakeWeatherServer fakeWeatherServer;
+    WeatherClient weatherClient;
 
+    std::vector<Weather> expectedWeatherData = {
+                                      {20, 181, 5.1},
+                                      {23, 204, 4.9},
+                                      {33, 193, 4.3},
+                                      {26, 179, 4.5}
+                                    };
+
+   ASSERT_EQ(weatherClient.getWeatherDataForDay(fakeWeatherServer, "31.08.2018"), expectedWeatherData);
+}
