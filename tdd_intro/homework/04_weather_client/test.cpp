@@ -111,3 +111,36 @@ Test plan
 12. test for GetMaximumWindSpeed for 01.09.2018
     Expected result: 4.2
 */
+struct Weather
+{
+    short temperature = 0;
+    unsigned short windDirection = 0;
+    double windSpeed = 0;
+    bool operator==(const Weather& right) const
+    {
+        return temperature == right.temperature &&
+               windDirection == right.windDirection &&
+               std::abs(windSpeed - right.windSpeed) < 0.01;
+    }
+};
+
+class WeatherParser
+{
+public:
+    Weather getWeather(const std::string& weatherData)
+    {
+        Weather weather;
+        return weather;
+    }
+};
+
+TEST(getWeather, parseWeatherDataFor31_08)
+{
+    Weather weather;
+    weather.temperature = 20;
+    weather.windDirection = 181;
+    weather.windSpeed = 5.1;
+
+    WeatherParser parser;
+    ASSERT_EQ(weather, parser.getWeather("20;181;5.1"));
+}
