@@ -257,7 +257,7 @@ public:
 
     double GetMaximumWindSpeed(IWeatherServer& server, const std::string& date)
     {
-
+        return 0;
     }
 
     ~WeatherClient()
@@ -344,4 +344,12 @@ TEST(GetAverageWindDirection, averageWindDirectionFor31_08is189_25)
     WeatherClient weatherClient;
 
     ASSERT_EQ(weatherClient.GetAverageWindDirection(fakeWeatherServer, "31.08.2018"), 189.25);
+}
+
+TEST(GetMaximumWindSpeed, maximumWindSpeedFor31_08is5_1)
+{
+    FakeWeatherServer fakeWeatherServer;
+    WeatherClient weatherClient;
+
+    ASSERT_EQ(weatherClient.GetMaximumWindSpeed(fakeWeatherServer, "31.08.2018"), 5.1);
 }
