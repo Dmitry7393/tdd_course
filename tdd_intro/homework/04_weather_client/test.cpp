@@ -148,3 +148,14 @@ TEST(getWeather, parseWeatherDataFor31_08)
     WeatherParser parser;
     ASSERT_EQ(weather, parser.getWeather("20;181;5.1"));
 }
+
+TEST(getWeather, parseWeatherDataFor01_09)
+{
+    Weather weather;
+    weather.temperature = 31;
+    weather.windDirection = 109;
+    weather.windSpeed = 4.0;
+
+    WeatherParser parser;
+    ASSERT_EQ(weather, parser.getWeather("31;109;4.0"));
+}
