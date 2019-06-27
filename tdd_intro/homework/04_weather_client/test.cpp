@@ -113,9 +113,9 @@ Test plan
 */
 struct Weather
 {
-    short temperature = 0;
-    unsigned short windDirection = 0;
-    double windSpeed = 0;
+    short temperature ;
+    unsigned short windDirection;
+    double windSpeed;
     bool operator==(const Weather& right) const
     {
         return temperature == right.temperature &&
@@ -148,12 +148,11 @@ public:
     }
 };
 
+
+
 TEST(getWeather, parseWeatherDataFor31_08)
 {
-    Weather weather;
-    weather.temperature = 20;
-    weather.windDirection = 181;
-    weather.windSpeed = 5.1;
+    Weather weather = { 20, 181, 5.1 };
 
     WeatherParser parser;
     ASSERT_EQ(weather, parser.getWeather("20;181;5.1"));
@@ -161,11 +160,9 @@ TEST(getWeather, parseWeatherDataFor31_08)
 
 TEST(getWeather, parseWeatherDataFor01_09)
 {
-    Weather weather;
-    weather.temperature = 31;
-    weather.windDirection = 109;
-    weather.windSpeed = 4.0;
-
+    Weather weather {31, 109, 4.0 };
     WeatherParser parser;
     ASSERT_EQ(weather, parser.getWeather("31;109;4.0"));
 }
+
+
