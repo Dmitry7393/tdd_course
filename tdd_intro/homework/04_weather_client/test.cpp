@@ -186,17 +186,13 @@ public:
     std::vector<Weather> getWeatherDataForDay(IWeatherServer& server, const std::string& date)
     {
         std::vector<Weather> weatherData;
-        std::string weatherAt3Am = server.GetWeather(date + ";" + "03:00");
-        weatherData.push_back(m_WeatherParser.getWeather(weatherAt3Am));
+        const std::vector<std::string> times = {"03:00", "09:00", "15:00", "21:00"};
 
-        std::string weatherAt9Am = server.GetWeather(date + ";" + "09:00");
-        weatherData.push_back(m_WeatherParser.getWeather(weatherAt9Am));
-
-        std::string weatherAt3Pm = server.GetWeather(date + ";" + "15:00");
-        weatherData.push_back(m_WeatherParser.getWeather(weatherAt3Pm));
-
-        std::string weatherAt9Pm = server.GetWeather(date + ";" + "21:00");
-        weatherData.push_back(m_WeatherParser.getWeather(weatherAt9Pm));
+        for (int i = 0; i < times.size(); ++i)
+        {
+            std::string response = server.GetWeather(date + ";" + times[i]);
+            weatherData.push_back(m_WeatherParser.getWeather(response));
+        }
 
         return weatherData;
     }
