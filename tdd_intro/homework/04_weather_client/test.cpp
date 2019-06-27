@@ -257,7 +257,18 @@ public:
 
     double GetMaximumWindSpeed(IWeatherServer& server, const std::string& date)
     {
-        return 0;
+        std::vector<Weather> weatherData = getWeatherDataForDay(server, date);
+        double maxWindSpeed = weatherData.at(0).windSpeed;
+
+        for (int i = 1; i < weatherData.size(); ++i)
+        {
+            if (weatherData.at(i).windSpeed > maxWindSpeed)
+            {
+                maxWindSpeed = weatherData.at(i).windSpeed;
+            }
+        }
+
+        return maxWindSpeed;
     }
 
     ~WeatherClient()
