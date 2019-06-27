@@ -66,3 +66,48 @@ public:
     virtual double GetAverageWindDirection(IWeatherServer& server, const std::string& date) = 0;
     virtual double GetMaximumWindSpeed(IWeatherServer& server, const std::string& date) = 0;
 };
+
+/*
+Architecture:
+1. class FakeWeatherServer, that inherited from IWeatherServer
+   FakeWeatherServer will contain map with hardcoded weather data
+2. class WeatherParser, that will parse raw string with weather data
+   method getWeather should return object Weather
+3. class WeatherClient, inherited from IWeatherClient
+   vector<Weather> getWeatherDataForDay(IWeatherServer& server, const std::string& date) returns
+   array with all weather data for the day
+
+Test plan
+1. test getWeather("20;181;5.1") -> Weather(20, 181, 5.1)
+
+2. test getWeather("31;109;4.0") -> Weather(31, 109, 4.0)
+
+3. test getWeatherDataForDay
+   "31.08.2018" -> vector<Weather> weatherData = { Weather(20, 181, 5.1),
+                                                   Weather(23, 204, 4.9),
+                                                   Weather(33, 193, 4.3),
+                                                   Weather(26, 179, 4.5)
+                                                 }
+4. test getWeatherDataForDay
+   "02.09.2018" -> vector<Weather> weatherData = { Weather(21, 158, 3.8),
+                                                   Weather(25, 201, 3.5),
+                                                   Weather(34, 258, 3.7),
+                                                   Weather(27, 299, 4.0)
+                                                 }
+5. test GetAverageTemperature for 31.08.2018
+   Expected result: 25.5
+6. test GetMinimumTemperature for 31.08.2018
+   Expected result: 20
+7. test GetMaximumTemperature for 31.08.2018
+   Expected result: 33
+8. test GetAverageWindDirection for 31.08.2018
+   Expected result: 189.25
+9. test GetMaximumWindSpeed for 31.08.2018
+   Expected result: 5.1
+10. test for GetAverageTemperature for 02.09.2018
+    Expected result: 26.75
+11. test for GetMaximumTemperature for 01.09.2018
+    Expected result: 31
+12. test for GetMaximumWindSpeed for 01.09.2018
+    Expected result: 4.2
+*/
