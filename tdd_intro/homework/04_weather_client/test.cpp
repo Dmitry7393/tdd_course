@@ -199,7 +199,7 @@ public:
 
     double GetAverageTemperature(IWeatherServer& server, const std::string& date)
     {
-
+        return 0;
     }
 
     double GetMinimumTemperature(IWeatherServer& server, const std::string& date)
@@ -274,4 +274,12 @@ TEST(getWeatherDataForDay, weatherDataFor02_09)
                                                };
 
    ASSERT_EQ(weatherClient.getWeatherDataForDay(fakeWeatherServer, "02.09.2018"), expectedWeatherData);
+}
+
+TEST(GetAverageTemperature, averageTemperaturefor31_08)
+{
+    FakeWeatherServer fakeWeatherServer;
+    WeatherClient weatherClient;
+
+   ASSERT_EQ(weatherClient.GetAverageTemperature(fakeWeatherServer, "31.08.2018"), 25.5);
 }
