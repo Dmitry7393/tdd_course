@@ -228,7 +228,18 @@ public:
 
     double GetMaximumTemperature(IWeatherServer& server, const std::string& date)
     {
-        return 0;
+        std::vector<Weather> weatherData = getWeatherDataForDay(server, date);
+        int maxTemperature = weatherData.at(0).temperature;
+
+        for (int i = 1; i < weatherData.size(); ++i)
+        {
+            if (weatherData.at(i).temperature > maxTemperature)
+            {
+                maxTemperature = weatherData.at(i).temperature;
+            }
+        }
+
+        return maxTemperature;
     }
 
     double GetAverageWindDirection(IWeatherServer& server, const std::string& date)
