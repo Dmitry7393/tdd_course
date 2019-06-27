@@ -260,3 +260,18 @@ TEST(getWeatherDataForDay, weatherDataFor31_08)
 
    ASSERT_EQ(weatherClient.getWeatherDataForDay(fakeWeatherServer, "31.08.2018"), expectedWeatherData);
 }
+
+TEST(getWeatherDataForDay, weatherDataFor02_09)
+{
+    FakeWeatherServer fakeWeatherServer;
+    WeatherClient weatherClient;
+
+    std::vector<Weather> expectedWeatherData = {
+                                                  {21, 158, 3.8},
+                                                  {25, 201, 3.5},
+                                                  {34, 258, 3.7},
+                                                  {27, 299, 4.0}
+                                               };
+
+   ASSERT_EQ(weatherClient.getWeatherDataForDay(fakeWeatherServer, "02.09.2018"), expectedWeatherData);
+}
