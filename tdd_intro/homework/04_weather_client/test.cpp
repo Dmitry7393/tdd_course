@@ -130,11 +130,21 @@ public:
     Weather getWeather(const std::string& weatherData)
     {
         Weather weather;
-        weather.temperature = 20;
-        weather.windDirection = 181;
-        weather.windSpeed = 5.1;
 
-        return weather;
+        std::stringstream test(weatherData);
+        std::string segment;
+        std::vector<std::string> elements;
+
+        while(std::getline(test, segment, ';'))
+        {
+            elements.push_back(segment);
+        }
+
+        weather.temperature = std::stoi(elements[0]);
+        weather.windDirection = std::stoi(elements[1]);
+        weather.windSpeed = std::atof(elements[2].c_str());
+
+      return weather;
     }
 };
 
