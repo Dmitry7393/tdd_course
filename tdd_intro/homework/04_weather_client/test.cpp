@@ -185,8 +185,20 @@ class WeatherClient : public IWeatherClient
 public:
     std::vector<Weather> getWeatherDataForDay(IWeatherServer& server, const std::string& date)
     {
-        std::vector<Weather> expectedWeatherData;
-        return expectedWeatherData;
+        std::vector<Weather> weatherData;
+        std::string weatherAt3Am = server.GetWeather(date + ";" + "03:00");
+        weatherData.push_back(m_WeatherParser.getWeather(weatherAt3Am));
+
+        std::string weatherAt9Am = server.GetWeather(date + ";" + "09:00");
+        weatherData.push_back(m_WeatherParser.getWeather(weatherAt9Am));
+
+        std::string weatherAt3Pm = server.GetWeather(date + ";" + "15:00");
+        weatherData.push_back(m_WeatherParser.getWeather(weatherAt3Pm));
+
+        std::string weatherAt9Pm = server.GetWeather(date + ";" + "21:00");
+        weatherData.push_back(m_WeatherParser.getWeather(weatherAt9Pm));
+
+        return weatherData;
     }
 
     double GetAverageTemperature(IWeatherServer& server, const std::string& date)
