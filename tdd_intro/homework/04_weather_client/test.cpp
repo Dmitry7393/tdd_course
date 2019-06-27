@@ -130,6 +130,10 @@ public:
     Weather getWeather(const std::string& weatherData)
     {
         Weather weather;
+        weather.temperature = 20;
+        weather.windDirection = 181;
+        weather.windSpeed = 5.1;
+
         return weather;
     }
 };
