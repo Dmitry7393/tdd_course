@@ -212,7 +212,18 @@ public:
 
     double GetMinimumTemperature(IWeatherServer& server, const std::string& date)
     {
-        return 0;
+        std::vector<Weather> weatherData = getWeatherDataForDay(server, date);
+        int minTemperature = weatherData.at(0).temperature;
+
+        for (int i = 1; i < weatherData.size(); ++i)
+        {
+            if (weatherData.at(i).temperature < minTemperature)
+            {
+                minTemperature = weatherData.at(i).temperature;
+            }
+        }
+
+        return minTemperature;
     }
 
     double GetMaximumTemperature(IWeatherServer& server, const std::string& date)
