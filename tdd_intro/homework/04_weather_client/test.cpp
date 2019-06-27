@@ -199,7 +199,14 @@ public:
 
     double GetAverageTemperature(IWeatherServer& server, const std::string& date)
     {
-        return 0;
+        std::vector<Weather> weatherData = getWeatherDataForDay(server, date);
+        int sum = 0;
+        sum += weatherData.at(0).temperature;
+        sum += weatherData.at(1).temperature;
+        sum += weatherData.at(2).temperature;
+        sum += weatherData.at(3).temperature;
+
+        return sum / 4.0;
     }
 
     double GetMinimumTemperature(IWeatherServer& server, const std::string& date)
