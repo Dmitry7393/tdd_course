@@ -100,7 +100,11 @@ public:
 
     void makeLatte(CupSize cupSize)
     {
-
+        m_sourceOfIngredients->SetCupSize(100);
+        m_sourceOfIngredients->AddMilk(25);
+        m_sourceOfIngredients->AddCoffee(50);
+        m_sourceOfIngredients->AddMilkFoam(25);
+        m_sourceOfIngredients->HeatUpTo(90);
     }
 
 private:
