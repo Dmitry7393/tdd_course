@@ -67,15 +67,15 @@ public:
             m_sourceOfIngredients->SetCupSize(100);
             m_sourceOfIngredients->AddCoffee(25);
             m_sourceOfIngredients->AddWater(75);
-            m_sourceOfIngredients->HeatUpTo(60);
         }
         else if (cupSize == BIG_CUP)
         {
             m_sourceOfIngredients->SetCupSize(140);
             m_sourceOfIngredients->AddCoffee(46);
             m_sourceOfIngredients->AddWater(94);
-            m_sourceOfIngredients->HeatUpTo(60);
         }
+
+        m_sourceOfIngredients->HeatUpTo(60);
     }
 
 private:
