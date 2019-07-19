@@ -22,7 +22,8 @@ class ISourceOfIngredients
 public:
     virtual ~ISourceOfIngredients() {}
     virtual void SetCupSize(int gram) = 0;
-    virtual void AddWater(int gram, int temperature) = 0;
+    virtual void AddWater(int gram) = 0;
+    virtual void HeatUpTo(int gram) = 0;
     virtual void AddSugar(int gram) = 0;
     virtual void AddCoffee(int gram) = 0;
     virtual void AddMilk(int gram) = 0;
@@ -30,3 +31,48 @@ public:
     virtual void AddChocolate(int gram) = 0;
     virtual void AddCream(int gram) = 0;
 };
+
+class SourceOfIngredientsMock : public ISourceOfIngredients
+{
+public:
+    MOCK_METHOD1(SetCupSize, void(int));
+    MOCK_METHOD1(AddWater, void(int));
+    MOCK_METHOD1(HeatUpTo, void(int));
+    MOCK_METHOD1(AddSugar, void(int));
+    MOCK_METHOD1(AddCoffee, void(int));
+    MOCK_METHOD1(AddMilk, void(int));
+    MOCK_METHOD1(AddMilkFoam, void(int));
+    MOCK_METHOD1(AddChocolate, void(int));
+    MOCK_METHOD1(AddCream, void(int));
+};
+
+enum CupSize
+{
+    SMALL_CUP,
+    BIG_CUP
+};
+
+class CoffeeMachine
+{
+public:
+    CoffeeMachine(ISourceOfIngredients* src)
+    {
+
+    }
+
+    void makeAmericano(CupSize cupSize)
+    {
+
+    }
+};
+
+TEST(CoffeeMachine, makeSmallAmericano)
+{
+    SourceOfIngredientsMock sourceIngredientMock;
+    CoffeeMachine coffeeMachine(&sourceIngredientMock);
+    EXPECT_CALL(sourceIngredientMock, SetCupSize(100)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, AddWater(75)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, AddCoffee(25)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, HeatUpTo(60)).Times(1);
+    coffeeMachine.makeAmericano(SMALL_CUP);
+}
