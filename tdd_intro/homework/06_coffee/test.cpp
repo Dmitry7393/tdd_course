@@ -80,10 +80,21 @@ public:
 
     void makeCappuccino(CupSize cupSize)
     {
-        m_sourceOfIngredients->SetCupSize(100);
-        m_sourceOfIngredients->AddMilk(33);
-        m_sourceOfIngredients->AddMilkFoam(33);
-        m_sourceOfIngredients->AddCoffee(33);
+        if (cupSize == SMALL_CUP)
+        {
+            m_sourceOfIngredients->SetCupSize(100);
+            m_sourceOfIngredients->AddMilk(33);
+            m_sourceOfIngredients->AddMilkFoam(33);
+            m_sourceOfIngredients->AddCoffee(33);
+        }
+        else if (cupSize == BIG_CUP)
+        {
+            m_sourceOfIngredients->SetCupSize(140);
+            m_sourceOfIngredients->AddMilk(46);
+            m_sourceOfIngredients->AddMilkFoam(46);
+            m_sourceOfIngredients->AddCoffee(46);
+        }
+
         m_sourceOfIngredients->HeatUpTo(80);
     }
 
