@@ -168,3 +168,15 @@ TEST(CoffeeMachine, makeSmallLatte)
     EXPECT_CALL(sourceIngredientMock, HeatUpTo(90)).Times(1);
     coffeeMachine.makeLatte(SMALL_CUP);
 }
+
+TEST(CoffeeMachine, makeBigLatte)
+{
+    SourceOfIngredientsMock sourceIngredientMock;
+    CoffeeMachine coffeeMachine(&sourceIngredientMock);
+    EXPECT_CALL(sourceIngredientMock, SetCupSize(140)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, AddMilk(35)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, AddCoffee(50)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, AddMilkFoam(35)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, HeatUpTo(90)).Times(1);
+    coffeeMachine.makeLatte(BIG_CUP);
+}
