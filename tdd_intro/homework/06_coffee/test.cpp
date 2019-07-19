@@ -57,13 +57,19 @@ class CoffeeMachine
 public:
     CoffeeMachine(ISourceOfIngredients* src)
     {
-
+        m_sourceOfIngredients = src;
     }
 
     void makeAmericano(CupSize cupSize)
     {
-
+        m_sourceOfIngredients->SetCupSize(100);
+        m_sourceOfIngredients->AddCoffee(25);
+        m_sourceOfIngredients->AddWater(75);
+        m_sourceOfIngredients->HeatUpTo(60);
     }
+
+private:
+    ISourceOfIngredients* m_sourceOfIngredients;
 };
 
 TEST(CoffeeMachine, makeSmallAmericano)
