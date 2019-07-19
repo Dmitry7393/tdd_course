@@ -120,7 +120,10 @@ public:
 
     void makeMarochino(CupSize cupSize)
     {
-
+         m_sourceOfIngredients->SetCupSize(100);
+         m_sourceOfIngredients->AddChocolate(25);
+         m_sourceOfIngredients->AddCoffee(25);
+         m_sourceOfIngredients->AddMilkFoam(25);
     }
 
 private:
