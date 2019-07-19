@@ -78,6 +78,11 @@ public:
         m_sourceOfIngredients->HeatUpTo(60);
     }
 
+    void makeCappuccino(CupSize cupSize)
+    {
+
+    }
+
 private:
     ISourceOfIngredients* m_sourceOfIngredients;
 };
@@ -102,4 +107,16 @@ TEST(CoffeeMachine, makeBigAmericano)
     EXPECT_CALL(sourceIngredientMock, AddCoffee(46)).Times(1);
     EXPECT_CALL(sourceIngredientMock, HeatUpTo(60)).Times(1);
     coffeeMachine.makeAmericano(BIG_CUP);
+}
+
+TEST(CoffeeMachine, makeSmallCappuccino)
+{
+    SourceOfIngredientsMock sourceIngredientMock;
+    CoffeeMachine coffeeMachine(&sourceIngredientMock);
+    EXPECT_CALL(sourceIngredientMock, SetCupSize(100)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, AddMilk(33)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, AddMilkFoam(33)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, AddCoffee(33)).Times(1);
+    EXPECT_CALL(sourceIngredientMock, HeatUpTo(80)).Times(1);
+    coffeeMachine.makeCappuccino(SMALL_CUP);
 }
