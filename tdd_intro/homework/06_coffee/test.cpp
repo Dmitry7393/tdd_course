@@ -80,7 +80,11 @@ public:
 
     void makeCappuccino(CupSize cupSize)
     {
-
+        m_sourceOfIngredients->SetCupSize(100);
+        m_sourceOfIngredients->AddMilk(33);
+        m_sourceOfIngredients->AddMilkFoam(33);
+        m_sourceOfIngredients->AddCoffee(33);
+        m_sourceOfIngredients->HeatUpTo(80);
     }
 
 private:
